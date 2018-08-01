@@ -3,7 +3,7 @@
 An event management web application made in Rails 4 from scratch. <br>
 Roles : Event Organiser, Venue Owner and Normal Users.
 
-![Eventify Screenshot](screenshot.png)
+![Eventify Screenshot](Screenshot from 2018-08-01 14-25-23.png)
 
 #### Setup:
 * Clone the repo
