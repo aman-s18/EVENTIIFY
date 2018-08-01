@@ -1,5 +1,5 @@
 ## Eventify
-#### [Github](https://github.com/ammu0001/eventorg.git) |
+#### [Github](https://github.com/ammu0001/EVENTIIFY.git) |
 An event management web application made in Rails 4 from scratch. <br>
 Roles : Event Organiser, Venue Owner and Normal Users.
 
