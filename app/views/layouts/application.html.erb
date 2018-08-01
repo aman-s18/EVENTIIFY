@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eventify</title>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "https://www.google.com/jsapi" %>
+
+  <link rel="stylesheet" type="text/css" href="/jquery.datetimepicker.css"/ >
+  <script src="/jquery.js"></script>
+  <script src="/jquery.datetimepicker.full.js"></script>
+
+  
+  <%= csrf_meta_tags %>
+</head>
+
+
+<% if [events_path,venues_path,events_my_events_path].include? request.fullpath%>
+  <body>
+<%elsif current_page? "/categories/#{params[:id]}"%>
+  <body>
+<%else%>
+  <div class="top-wrap"></div>
+  <body >
+<%end%>
+  
+
+<div>
+  
+  <nav class="navbar navbar-default navbar-fixed-top" style="background-color:rgba(0,0,0,0.5);">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/events">
+          <%= image_tag('eventify_logo2.png', width: "95px", class: "img-responsive")  %>
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+        <ul class="nav navbar-nav">
+          <li >
+            <%= link_to events_path do%>
+              Events <span class="badge"><%= Event.all.size %></span>
+            <%end%>
+          </li>
+          <li>
+            <%= link_to venues_path do %>
+              Venues <span class="badge"><%= Venue.all.size %></span>
+            <%end%>  
+          </li>
+
+        </ul>
+
+        <% if notice %> 
+        <ul class="nav navbar-nav " style="margin-top:15px">
+          <li>
+              
+              <b style="color:#03CEA4"><%= notice %></b>  
+              
+            </li>
+        </ul>
+        <%end%>
+
+        <% if alert %> 
+        <ul class="nav navbar-nav " style="margin-top:15px">
+          <li>
+               <b style="color:#FB4D3D"><%= alert %></b> 
+              
+          </li>
+        </ul>
+        <%end%>
+
+        
+        <ul class="nav navbar-nav navbar-right">
+
+          <li>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#infoModal" style="margin-top: 10px">
+              About
+            </button>
+          </li>
+
+          <% if user_signed_in? %>
+         <li > <a > <%= current_user.username %> </a> </li> 
+         <li>
+        <%= link_to "Account Setting", edit_user_registration_path %> </li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Login", new_user_session_path %></li>
+        <li><%= link_to "Register", new_user_registration_path %></li>
+      <% end %>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+    <%= yield %>
+</div>
+
+
+<hr>
+<div class="container">
+  <div class="col-md-6 text-left">
+    <p>Copyright © 2018 <a href="http://localhost:3000/">Eventify</a>. All rights reserved.</p>
+  </div>
+  <div class="col-md-6 text-right">
+    <p >Created with <span role='img'>❤</span> by <a href="https://www.github.com/aswinsanakan" target="_blank">Aman Sharma</a> @ <a href="#" target="_blank">Bittern Technology Pvt. Ltd</a></p>
+  </div>
+</div>
+
+
+<%= render 'layouts/info' %>
+
+</body>
+</html>
