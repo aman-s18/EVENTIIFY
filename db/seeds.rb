@@ -1,1 +1,1 @@
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+AdminUser.create!(email: 'admin@gmail.com', password: '123456', password_confirmation: '123456')

@@ -63,7 +63,7 @@
 	
 	<div class="form-group">
 		<%= f.label "Tickets" %>
-	<%= f.select :tickets_left, value: [250,500,750,1000],class: "form-control" %>
+	<%= f.select :tickets_left, [250,500,750,1000, 10000] %>
 	</div>
 
 	<%= f.submit "Submit", class: "btn btn-success"%>
