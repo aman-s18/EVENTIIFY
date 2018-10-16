@@ -79,8 +79,9 @@
         <%end%>
 
         
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
 
+          
           <li>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-default" data-toggle="modal" data-target="#infoModal" style="margin-top: 10px">
@@ -96,6 +97,11 @@
       <% else %>
         <li><%= link_to "Login", new_user_session_path %></li>
         <li><%= link_to "Register", new_user_registration_path %></li>
+        <li>
+            <!-- Button trigger modal -->
+            
+            <%= link_to "User Management", users_path, notice: 'Event booking was successfully updated.' %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+          </li>
       <% end %>
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -103,6 +109,7 @@
   </nav>
     <%= yield %>
 </div>
+<marquee>Welcome To the EVENTIFY</marquee>
 
 
 <hr>

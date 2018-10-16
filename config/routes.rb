@@ -1,33 +1,33 @@
 Rails.application.routes.draw do
 
-  #devise_for :admin_users, ActiveAdmin::Devise.config
-  #ActiveAdmin.routes(self)
-  resources :event_bookings
-  devise_for :users, controllers: {registrations: 'registrations'}
-
-  scope "/admin" do 
-    resources :users
-    # get "users/new"
-  end
-
-
-  resources :venues
-
-  resources :venue_bookings
-
-  get 'events/my_events'
-  resources :events do 
+    devise_for :admin_users,ActiveAdmin::Devise.config
+    ActiveAdmin.routes(self)
     resources :event_bookings
-  end
-  resources :categories
+    devise_for :users, controllers: {registrations: 'registrations'}
+
+    scope "/admin" do 
+    resources :users
+    get "users/new"
+    end
+
+
+    resources :venues
+
+    resources :venue_bookings
+
+    get 'events/my_events'
+    resources :events do 
+    resources :event_bookings
+    end
+    resources :categories
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  devise_scope :user do
+    devise_scope :user do
     root to: "devise/sessions#new"
-  end
+    end
   #root 'events#index'
 
   # Example of regular route:

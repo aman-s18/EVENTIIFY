@@ -16,4 +16,4 @@
 !/log/.keep
 /tmp
 /public
-tmp/cache/assets/sprockets
+/tmp/cache/assets/sprockets
