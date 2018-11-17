@@ -1,6 +1,7 @@
 class VenueBooking < ActiveRecord::Base
 	belongs_to :venue
 	belongs_to :event
+	belongs_to :user
 
 	validate :slot_open?, on: :create
 	validate :check_date, on: :create

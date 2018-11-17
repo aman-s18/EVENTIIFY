@@ -23,3 +23,4 @@ Roles : Event Organiser, Venue Owner and Normal Users.
 - Momentjs : To format date in javascript
 - JQuery Chosen : To enhance select boxes
 - DateTime Picker : For choosing date and time
+- Project Developed by Aman Sharma

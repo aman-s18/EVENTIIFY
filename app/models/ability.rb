@@ -40,8 +40,10 @@ class Ability
         can :read, Event
         can :read, Venue
         can :read, VenueBooking
+        can :my_bookings, VenueBooking
         can :create, EventBooking
         can :my_bookings, EventBooking
+
     end
     # Define abilities for the passed in user here. For example:
     #
