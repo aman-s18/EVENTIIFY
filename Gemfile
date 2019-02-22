@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
-# gem 'ruby', '1.9.3'
+#gem 'ruby', '1.9.3'
 gem 'devise'
-gem 'json', '~> 1.8.3'
-
+#gem 'json', '~> 1.8.3'
+gem 'json', '~> 1.8', '>= 1.8.3'
+gem 'bundler', '~> 1.9', '>= 1.9.3'
 gem 'cancancan'
 gem 'activeadmin'
 
@@ -22,7 +23,8 @@ gem 'pry'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', group: :development
+gem 'sqlite3', '1.3.6'
+#gem 'sqlite3'#, group: :development
 gem 'pg', group: :production
 gem 'rails_12factor', group: :production
 # Use SCSS for stylesheets

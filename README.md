@@ -4,7 +4,21 @@ An event management web application made in Rails 4 from scratch. <br>
 Roles : Event Organiser, Venue Owner and Normal Users.
 
 ![Eventify Screenshot](Screenshot from 2018-08-01 14-25-23.png)
+#### Ruby on Rails Requirement
+	*   ruby-1.9.3-p551 [ x86_64 ]
+   		ruby-2.0.0-p648 [ x86_64 ]
+ 	  =*ruby-2.1.10 [ x86_64 ] This Version use to setup this project
+   		ruby-2.4.1 [ x86_64 ]
+   		ruby-2.5.3 [ x86_64 ]
+ 		ruby-2.6.1 [ x86_64 ]
 
+# => - current
+# =* - current && default
+#  * - default
+#### Rails Requirement
+     *	rails 4.2.6
+#### Database gem Used
+	 *  gem 'sqlite3', '1.3.6'
 #### Setup:
 * Clone the repo
 * Run bundle install

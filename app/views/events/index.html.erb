@@ -5,7 +5,7 @@
 	<div class="page-header text-center">
 		<p>
 			<% if params[:search] == nil %>
-				<h3>All Events</h3>
+				<h1>All Events</h1>
 			<% else %>
 				<h3>Events with "<%= params[:search] %>" : </h3>
 			<% end %>
@@ -76,7 +76,7 @@
         		<p class="text-center well well-sm"> <small><%= event.end_datetime.strftime("%d %b %Y") %></small></p>
         	</div>
         	<div class="col-sm-6 col-md-6" style="margin-top:2px">
-        		<p class="text-center"><a href="/events/<%= "#{event.id}" %>" class="btn btn-danger" role="button" style="border: none; color: white;">Buy Tickets</a></p>
+        		<p class="text-center"><a href="/events/<%= "#{event.id}" %>" class="btn btn-danger" role="button" style="border: none; color: white;">Event Details</a></p>
         	</div>
         </div>
 

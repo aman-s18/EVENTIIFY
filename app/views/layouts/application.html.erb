@@ -84,8 +84,7 @@
           
           <li>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#infoModal" style="margin-top: 10px">
-              About
+            <button type="button" button class="button"  data-toggle="modal" data-target="#infoModal" style="margin-top: 8px"><span>About</span>
             </button>
           </li>
 
@@ -100,7 +99,7 @@
         <li>
             <!-- Button trigger modal -->
             
-            <%= link_to "User Management", users_path, notice: 'Event booking was successfully updated.' %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+            <%= link_to "User Management", users_path, notice: 'Admin Account normal user not handle this' %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
           </li>
       <% end %>
         </ul>
@@ -109,7 +108,7 @@
   </nav>
     <%= yield %>
 </div>
-<marquee>Welcome To the EVENTIFY</marquee>
+
 
 
 <hr>
