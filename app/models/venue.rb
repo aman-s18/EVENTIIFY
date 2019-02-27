@@ -1,6 +1,5 @@
 class Venue < ActiveRecord::Base
 	mount_uploader :avatar, AvatarUploader
-	has_many :venue_attechment
 
 	has_many :venue_bookings
 	has_many :events

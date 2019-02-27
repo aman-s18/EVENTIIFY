@@ -79,12 +79,12 @@
         <%end%>
 
         
-        <ul class="nav navbar-nav navbar-right">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+        <ul class="nav navbar-nav navbar-right">
 
-          
           <li>
             <!-- Button trigger modal -->
-            <button type="button" button class="button"  data-toggle="modal" data-target="#infoModal" style="margin-top: 8px"><span>About</span>
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#infoModal" style="margin-top: 10px">
+              About
             </button>
           </li>
 
@@ -96,11 +96,6 @@
       <% else %>
         <li><%= link_to "Login", new_user_session_path %></li>
         <li><%= link_to "Register", new_user_registration_path %></li>
-        <li>
-            <!-- Button trigger modal -->
-            
-            <%= link_to "User Management", users_path, notice: 'Admin Account normal user not handle this' %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
-          </li>
       <% end %>
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -110,14 +105,13 @@
 </div>
 
 
-
 <hr>
 <div class="container">
   <div class="col-md-6 text-left">
-    <p>Copyright © 2018 <a href="http://localhost:3000/">Eventify</a>. All rights reserved.</p>
+    <p>Copyright © 2019 <a href="https://localhost:3000">Eventify</a>. All rights reserved.</p>
   </div>
   <div class="col-md-6 text-right">
-    <p >Created with <span role='img'>❤</span> by <a href="https://www.github.com/ammu0001" target="_blank">Aman Sharma</a> @ <a href="http://gpkashipur.in/" target="_blank">Govt. Polytechnic Kashipur </a></p>
+    <p >Created with <span role='img'>❤</span> by <a href="https://www.github.com/aswinsanakan" target="_blank">Aman Sharma</a> @ <a href="https://gpkashipur.in" target="_blank">Govt. Polytechnic Kashipur</a></p>
   </div>
 </div>
 

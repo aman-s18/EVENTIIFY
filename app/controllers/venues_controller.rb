@@ -25,7 +25,6 @@ class VenuesController < ApplicationController
 			render action: "new"
 		end
 	end
-	
 
 	def show
 		@venue = Venue.find(params[:id])

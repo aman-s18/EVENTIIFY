@@ -1,3 +1,4 @@
+
 class Event < ActiveRecord::Base
 
 	mount_uploader :avatar, AvatarUploader
@@ -20,7 +21,7 @@ class Event < ActiveRecord::Base
 
 	def self.search(search)
 		where("name LIKE ?", "%#{search}%")
-		where("description LIKE ?", "%#{search}%")
+		#where("description LIKE ?", "%#{search}%")
 	end
 
 	private 
