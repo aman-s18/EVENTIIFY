@@ -58,9 +58,11 @@
 		<div class="col-md-5">
 			<% if params[:booking_id] %>
 			<div class="alert alert-success text-center">
-				<h3>Booked successfully! <br> Total Price : <b>Rs. <%= @booking_confirmed.total_price %></b></h3> <br>
+				<h3>Booked successfully! <br> Total Price : <b>Rs. <%= @booking_confirmed.total_price %></b><br></h3>
+				 <br>
 			</div>
 			<%end %>
+			<%= @event_bookings.try(:customername) %>
 
 			<b><%= @event.description %> </b><br/>
 			<b>Venue : </b> <%= link_to "#{@event.venue.name}", venue_path(@event.venue) %> <br>
@@ -73,17 +75,44 @@
 				
 				<h3 style="margin-top:5px">Buy Tickets</h3>
 				<b>Entry fee :</b> Rs.<%= @event.entry_fee %> <br/>
+
+
 				<%= form_for([@event,@event_booking]) do |f|  %>
-					
-					<% @event_booking.tickets = 0 %>
+				  <% if @event_booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event_booking.errors.count, "error") %> prohibited this event_booking from being saved:</h2>
+
+      <ul>
+      <% @event_booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Name %><br>
+    <%= f.text_field :customername %>
+  </div>
+  <div class="field">
+    <%= f.label :Mobile_No %><br>
+    <%= f.number_field :aadhar %>
+  </div>
+  <%#= @event_bookings.try(:customername) %>
+
+  <% @event_booking.tickets = 0 %>
 					<%= f.label "Choose no of tickets" %>
-					<%= f.select :tickets, [1,2,3,4,5,6,7,8,9,10] %> 
+					<%= f.select :tickets, [1,2,3,4,5] %><br> 
 				
 					<% @event_booking.total_price = @event.entry_fee * @event_booking.tickets %>
 				 
-					<%= f.submit "Book" , class: "btn btn-danger"%> <br>
+					<%= f.submit "Book Ticket" , class: "btn btn-success"%> <br>
 					
-				<% end %>	
+				<% end %>
+ 
+				<%#= form_for([@event,@event_booking]) do |f|  %>
+					
+						
 			</div>
 			<% end %>
 
@@ -113,6 +142,7 @@
 						<th>Email</th>
 						<th>Tickets Booked</th>
 						<th>Price</th>
+						<th>Cancel Ticket</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -126,6 +156,10 @@
 						<td><%= booking.user.email %></td>
 						<td><%= booking.tickets %></td>
 						<td>Rs. <%= booking.total_price %></td>
+						<% @event_bookings.each do |event_booking| %>
+		
+        <td><%= link_to 'Cancel', event_booking, method: :delete, data: { confirm: 'Are you sure?, Cancel the ticket' } %></td>
+    <% end %>
 						<% 	i += 1
 							sum += booking.total_price 
 							tickets += booking.tickets %>
@@ -139,6 +173,7 @@
 						<td><b>Rs. <%= sum %></b></td>
 					</tr>
 				</tbody>
+
 			</table>
 			<% end %>
 					

@@ -42,7 +42,10 @@ class Ability
         can :read, VenueBooking
         can :create, EventBooking
         can :my_bookings, EventBooking
+
     end
+        can [:create, :read], VenueBooking 
+        can :venue_bookings, VenueBooking
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

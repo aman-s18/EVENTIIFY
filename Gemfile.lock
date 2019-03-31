@@ -21,6 +21,7 @@ GEM
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
     active_admin_flat_skin (0.1.2)
+    active_admin_theme (1.0.3)
     activeadmin (1.0.0)
       arbre (>= 1.1.1)
       bourbon
@@ -261,6 +262,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_admin_flat_skin
+  active_admin_theme
   activeadmin
   bootstrap-sass (~> 3.3.6)
   bundler (~> 1.9, >= 1.9.3)
@@ -287,4 +289,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.16.6
+   1.17.3

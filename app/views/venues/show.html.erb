@@ -17,7 +17,7 @@
 			<%= image_tag(@venue.avatar.url, display: "block", width: "100%", margin: "auto" ) if @venue.avatar.url %>
 			<div class="row" style="margin-top:20px">
 				<div class="col-md-6" >
-					<p> <b>Owned by : </b><%= @venue.user.username %></p>
+					<p> <b>Owned by : </b><%= @venue.user.try(:username) %></p>
 					<p><b>Address : </b><%= @venue.address %></p>
 				</div>
 				<div class="col-md-5 well">

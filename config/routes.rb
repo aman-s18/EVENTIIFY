@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-    # devise_for :admin_users,ActiveAdmin::Devise.config
-    # ActiveAdmin.routes(self)
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
     resources :event_bookings
     devise_for :users, controllers: {registrations: 'registrations'}
 
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :venues
 
     resources :venue_bookings
+    # get 'events/event_bookings'
 
     get 'events/my_events'
     resources :events do 

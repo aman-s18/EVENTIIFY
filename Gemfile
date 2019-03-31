@@ -15,7 +15,8 @@ gem 'seed_dump'
 
 gem 'faker'
 gem 'active_admin_flat_skin'
-#gem 'face_of_active_admin'
+# gem 'face_of_active_admin'
+gem 'active_admin_theme'
 
 
 gem 'pry'

@@ -3,6 +3,7 @@ class EventBooking < ActiveRecord::Base
 	belongs_to :user
 	before_create :calculate_price
 	after_create :minus_tickets_left
+	# after_destroy :plus_tickets_left
 
 	validate :check_ticket_availability
 
@@ -18,6 +19,12 @@ class EventBooking < ActiveRecord::Base
 		event.update_attributes(tickets_left: tickets)
 		
 	end
+	# def plus_tickets_left
+	# 	event = self.event
+	# 	tickets = event.tickets_left - self.tickets
+	# 	event.destroy_attributes(tickets_left: tickets)
+		
+	# end
 
 	def check_ticket_availability
 		if self.event.tickets_left <= 0

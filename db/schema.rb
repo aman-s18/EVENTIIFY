@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180801034238) do
+ActiveRecord::Schema.define(version: 20190301150246) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -61,10 +61,12 @@ ActiveRecord::Schema.define(version: 20180801034238) do
   create_table "event_bookings", force: :cascade do |t|
     t.integer  "event_id"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.float    "total_price"
     t.integer  "tickets"
+    t.string   "customername"
+    t.integer  "aadhar"
   end
 
   create_table "event_categories", force: :cascade do |t|
