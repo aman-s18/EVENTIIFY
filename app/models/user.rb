@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   validates_uniqueness_of :email
 
+  has_many :comments
+  has_many :likes, dependent: :destroy
+
 	has_many :events
   has_many :venues
 	has_many :permissions

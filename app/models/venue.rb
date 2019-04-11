@@ -3,6 +3,7 @@ class Venue < ActiveRecord::Base
 
 	has_many :venue_bookings
 	has_many :events
+	has_many :comments, dependent: :destroy
 	
 	belongs_to :locality
 	belongs_to :user

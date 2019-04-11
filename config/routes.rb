@@ -16,6 +16,16 @@ Rails.application.routes.draw do
     resources :venue_bookings
     # get 'events/event_bookings'
 
+    resources :events do
+      resources :comments
+    end
+    resources :venues do
+      resources :comments
+    end
+    resources :events do
+  resources :likes
+end
+
     get 'events/my_events'
     resources :events do 
     resources :event_bookings

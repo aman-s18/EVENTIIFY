@@ -52,8 +52,8 @@
 						<%= i +=1 %>		
 					</td>
 					<td>
-						<% if !booking.event.nil? %>
-							<%= booking.event.name.capitalize %>
+						<% if !booking.venue.nil? %>
+							<%= booking.venue.name.capitalize %>
 						<% else %>
 							<p>*Booked by VenueOwner*</p>
 						<%end%>
@@ -91,6 +91,55 @@
 		</div>
 
 	</div>
+	<h4>Comments</h4>
+<% @venue.comments.each do |comment| %>
+  <p>
+    <strong>User:</strong>
+     <% if comment.user_id.present? %>
+    <%= User.find(comment.user_id).email %>
+    <%#= User.find(comment.user_id).username %>
+    <%#= comment.user_id %>
+    <% end%>
+      </p>
+ 
+  <p>
+    <strong>Comments:</strong>
+    <%= comment.body %>
+  </p>
+  <p>
+   <%#= link_to 'Destroy Comment', [comment.venue, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+	</p>
+	<% end %>
+	</div>
+	<div>
+		<div>
+		<p>
+	<h4>Add a comment:</h4> 
+	<%= form_for [ @venue, @venue.comments.build ] do |form| %>
+  	<p>
+    
+    <%= form.label :User %>&nbsp;
+    <% if user_signed_in? %>
+     <a > <%= current_user.username %> </a>
+    <% end -%>
+  </p>
+  <div class="id">
+    <%= form.label :Comment %><br>
+    <%= form.text_area :body %>
+  </div>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+<%#= render 'comments/form' %>
+ 
+<%#= link_to 'Back', venues_path %>
+ 
+		</div>
+			<!-- carousel ends here -->		
+		</div> 
 
 	<%= link_to "Back", venues_path %>
 

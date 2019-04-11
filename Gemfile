@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 #gem 'ruby', '1.9.3'
 gem 'devise'
+# gem 'rating'
+
 #gem 'json', '~> 1.8.3'
 gem 'json', '~> 1.8', '>= 1.8.3'
 gem 'bundler', '~> 1.9', '>= 1.9.3'

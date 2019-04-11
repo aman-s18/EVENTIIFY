@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190301150246) do
+ActiveRecord::Schema.define(version: 20190411170347) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -58,15 +58,28 @@ ActiveRecord::Schema.define(version: 20190301150246) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string   "commenter"
+    t.text     "body"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.string   "username"
+    t.integer  "venue_id"
+  end
+
+  add_index "comments", ["event_id"], name: "index_comments_on_event_id"
+
   create_table "event_bookings", force: :cascade do |t|
     t.integer  "event_id"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.float    "total_price"
     t.integer  "tickets"
     t.string   "customername"
-    t.integer  "aadhar"
+    t.integer  "aadhar",       limit: 16
   end
 
   create_table "event_categories", force: :cascade do |t|
@@ -91,6 +104,18 @@ ActiveRecord::Schema.define(version: 20190301150246) do
     t.integer  "tickets_left"
     t.string   "avatar"
   end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "user_id"
+    t.integer  "venue_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "likes", ["event_id"], name: "index_likes_on_event_id"
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id"
+  add_index "likes", ["venue_id"], name: "index_likes_on_venue_id"
 
   create_table "localities", force: :cascade do |t|
     t.string   "name"

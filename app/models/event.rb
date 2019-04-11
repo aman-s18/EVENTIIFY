@@ -2,7 +2,9 @@
 class Event < ActiveRecord::Base
 
 	mount_uploader :avatar, AvatarUploader
-
+	has_many :comments, dependent: :destroy
+	has_many :likes, dependent: :destroy
+  	
 	has_many :venue_bookings
 	has_many :event_bookings
 	has_many :event_categories
@@ -13,6 +15,7 @@ class Event < ActiveRecord::Base
 	belongs_to :venue
 	belongs_to :locality
 	belongs_to :user
+	
 
 	validate :slot_open?, on: :create
 	validate :check_date, on: :create
@@ -23,6 +26,10 @@ class Event < ActiveRecord::Base
 		where("name LIKE ?", "%#{search}%")
 		#where("description LIKE ?", "%#{search}%")
 	end
+
+	# def as_json(options = {})
+ #    super(options.merge(include: [:user, comments: {include: :user}]))
+ #  end
 
 	private 
 

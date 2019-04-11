@@ -51,7 +51,41 @@
 			    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 			    <span class="sr-only">Next</span>
 			  </a>
-			</div>
+			</div class="btn btn-success">
+			<p><%= @event.likes.count %> <%= (@event.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+			<div>
+			<%= button_to 'Like', event_likes_path(@event), method: :event %>
+		</div>
+<div>
+	<h4>Comments</h4>
+<% @event.comments.each do |comment| %>
+  <p>
+    <strong>User:</strong>
+     <% if comment.user_id.present? %>
+    <%= User.find(comment.user_id).email %>
+    <%#= User.find(comment.user_id).username %>
+    <%#= comment.user_id %>
+    <% end%>
+      </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+  <p>
+   <%#= link_to 'Destroy Comment', [comment.event, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+<% end %>
+</div>
+<div>
+<h4>Add a comment:</h4> 
+<%= render 'comments/form' %>
+ 
+<%#= link_to 'Back', events_path %>
+ 
+</div>
 			<!-- carousel ends here -->		
 		</div> 
 
@@ -96,7 +130,7 @@
   </div>
   <div class="field">
     <%= f.label :Mobile_No %><br>
-    <%= f.number_field :aadhar %>
+    <%= f.text_field :aadhar %>
   </div>
   <%#= @event_bookings.try(:customername) %>
 
@@ -115,6 +149,7 @@
 						
 			</div>
 			<% end %>
+
 
 			<div>
 				

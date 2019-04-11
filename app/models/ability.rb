@@ -6,6 +6,7 @@ class Ability
     if user.nil?
         can :read, Event
         can :read, Venue
+        can :read, Comment
         
     elsif user.role? "admin"
         can :manage, :all 
