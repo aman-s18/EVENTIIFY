@@ -6,7 +6,7 @@ class Ability
     if user.nil?
         can :read, Event
         can :read, Venue
-        can :read, Comment
+        # can :read, Comment
         
     elsif user.role? "admin"
         can :manage, :all 
@@ -43,8 +43,11 @@ class Ability
         can :read, VenueBooking
         can :create, EventBooking
         can :my_bookings, EventBooking
+        can :create, VenueBooking
+        can :venue_bookings, VenueBooking
 
     end
+
         can [:create, :read], VenueBooking 
         can :venue_bookings, VenueBooking
     # Define abilities for the passed in user here. For example:

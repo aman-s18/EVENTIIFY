@@ -1,0 +1,13 @@
+class CreateArticles < ActiveRecord::Migration
+  def change
+    create_table :articles do |t|
+      t.string :fname
+      t.integer :age,     limit: 8
+      t.string :address
+      t.integer :phnmbr,  limit: 16
+      t.string :mname
+
+      t.timestamps null: false
+    end
+  end
+end

@@ -8,6 +8,7 @@
 			<li><%= link_to "Venues", venues_path %></li>
 			<li class="active"><%= link_to @venue.name, venue_path(@venue) %></li>
 		</ol>
+		<%= social_share_button_tag(@venue.name, :allow_sites => %w(twitter facebook linkedin whatsapp_web google_plus tumblr pinterest wechat telegram reddit github)) %>
 		<h3><%= @venue.name %></h3>
 	</div>
 
@@ -19,6 +20,8 @@
 				<div class="col-md-6" >
 					<p> <b>Owned by : </b><%= @venue.user.try(:username) %></p>
 					<p><b>Address : </b><%= @venue.address %></p>
+					<%#= button_to 'Like', venue_likes_path(@venue), method: :venue %>
+					<p><%#= @venue.likes.count %> <%#= (@venue.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 				</div>
 				<div class="col-md-5 well">
 					<h4>Seat Capacity : <b><%= @venue.seats %></b></h4>

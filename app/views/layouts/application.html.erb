@@ -28,7 +28,7 @@
 
 <div>
   
-  <nav class="navbar navbar-default navbar-fixed-top" style="background-color:rgba(0,0,0,0.5);">
+  <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #000000;">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -39,7 +39,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/events">
-          <%= image_tag('eventify_logo2.png', width: "95px", class: "img-responsive")  %>
+          <%= image_tag('logo.png', width: "200px", class: "img-responsive")  %>
         </a>
       </div>
 
@@ -47,6 +47,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
         <ul class="nav navbar-nav">
           <li >
+            
             <%= link_to events_path do%>
               Events <span class="badge"><%= Event.all.size %></span>
             <%end%>
@@ -83,39 +84,94 @@
 
           <li>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#infoModal" style="margin-top: 10px">
+            <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#infoModal" >
               About
             </button>
           </li>
 
           <% if user_signed_in? %>
          <li > <a > <%= current_user.username %> </a> </li> 
-         <li>
-        <%= link_to "Account Setting", edit_user_registration_path %> </li>
-        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+         <li><button type = "button" class="btn btn-warning" style="margin-left: 5px" >
+        <%= link_to "Account Setting", edit_user_registration_path %></button> </li>
+        <li><button type = "button" class="btn btn-danger" style="margin-left: 5px" ><%= link_to "Logout", destroy_user_session_path, method: :delete %> </button></li>
       <% else %>
-        <li><%= link_to "Login", new_user_session_path %></li>
-        <li><%= link_to "Register", new_user_registration_path %></li>
+      <button type = "button" class="btn btn-warning" style="margin-right: 5px" >
+        <%= link_to "Login", new_user_session_path %></button></li>
+        <li><li><button type = "button" class="btn btn-success" style="margin-left: 5px" ><%= link_to "Register", new_user_registration_path %></button></li>
       <% end %>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
     <%= yield %>
+  </div>
+
+<hr class="style18"> 
+<footer class="footer">
+
+  <div class="container text-center">
+    <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+    <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+    <a href="https://in.linkedin.com/"><i class="fa fa-linkedin"></i></a>
+    <a href="https://aboutme.google.com/u/0/
+"><i class="fa fa-google-plus"></i></a>
+    <a href="https://www.skype.com/en/"><i class="fa fa-skype"></i></a>
+    <a href="https://web.whatsapp.com/🌐/en
+"><i class="fa fa-whatsapp"></i></a>
+    <a href="https://web.wechat.com/"><i class="fa fa-wechat"></i></a>
+    <a href="https://github.com/ammu0001"><i class="fa fa-github"></i></a>
+    <a href="https://bitbucket.org/
+"><i class="fa fa-bitbucket"></i></a>
+    <a href="#"><i class="fa fa-tumblr"></i></a>
+    <a href="#"><i class="fa fa-pinterest"></i></a>
+    <a href="#"><i class="fa fa-reddit"></i></a>
+    <a href="#"><i class="fa fa-delicious"></i></a>
+    <a href="#"><i class="fa fa-xing"></i></a>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="paymentCont">
+            <div class="headingWrap">  
+            </div>
+            <div class="paymentWrap">
+              <div class="btn-group paymentBtnGroup btn-group-justified" data-toggle="buttons">
+                      <label class="btn paymentMethod active">
+                        <div class="method visa"></div>
+                          <input type="radio" name="options" checked> 
+                      </label>
+                      <label class="btn paymentMethod">
+                        <div class="method master-card"></div>
+                          <input type="radio" name="options"> 
+                      </label>
+                      <label class="btn paymentMethod">
+                        <div class="method amex"></div>
+                          <input type="radio" name="options">
+                      </label>
+                       <label class="btn paymentMethod">
+                        <div class="method vishwa"></div>
+                          <input type="radio" name="options"> 
+                      </label> 
+  
+  
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/> -->
+</footer>
 </div>
 
-
-<hr>
-<div class="container">
+  <div class="container">
   <div class="col-md-6 text-left">
-    <p>Copyright © 2019 <a href="#">Eventify</a>. All rights reserved.</p>
+    <p>Copyright © 2019 <a href="#">Eventify</a>. All rights reserved.#Go#<a href="http://localhost:3000/admin/users">Admin Section</a></p>
   </div>
+
   <div class="col-md-6 text-right">
-    <p >Created with <span role='img'>❤</span> by <a href="https://www.github.com/ammu0001" target="_blank">Aman Sharma</a> @ <a href="https://gpkashipur.in" target="_blank">Govt. Polytechnic Kashipur</a>#Go#<a href="http://localhost:3000/admin/users">Admin Section</a></p>
+    <p >Created with <span role='img'>❤</span> by <a href="https://www.github.com/ammu0001" target="_blank">Aman Sharma</a> @ <a href="https://gpkashipur.in" target="_blank">Govt. Polytechnic Kashipur</a></p>
   </div>
+</div>
 </div>
 
 
+<%#= render 'layouts/footer' %>
 <%= render 'layouts/info' %>
 
 </body>

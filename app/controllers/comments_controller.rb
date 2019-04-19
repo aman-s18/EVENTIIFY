@@ -52,3 +52,13 @@ def create
       params.require(:comment).permit(:user_id, :username, :body)
     end
 end
+
+
+
+
+
+
+
+
+
+# rgba(30,20,50,01)

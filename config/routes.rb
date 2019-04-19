@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :users
     get "users/new"
     end
+    resources :articles
 
 
     resources :venues
@@ -24,7 +25,10 @@ Rails.application.routes.draw do
     end
     resources :events do
   resources :likes
-end
+  end
+    resources :venues do
+      resources :likes
+    end
 
     get 'events/my_events'
     resources :events do 

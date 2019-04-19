@@ -2,6 +2,8 @@
 class Event < ActiveRecord::Base
 
 	mount_uploader :avatar, AvatarUploader
+	# serialize :avatars, JSON
+	# has_many_atteched :avatars
 	has_many :comments, dependent: :destroy
 	has_many :likes, dependent: :destroy
   	

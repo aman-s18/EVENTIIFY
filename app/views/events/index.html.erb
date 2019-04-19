@@ -1,4 +1,3 @@
-	
 <div class="jumbotron jumbotron-events" >
   <div class="container" >
     <div style="margin-top: 100px">
@@ -13,7 +12,7 @@
 	</div>
 	<div class="text-center">
 		<h4><% if can? :my_events, Event.new %>
-			Goto <%= link_to "My Events", events_my_events_path %>  
+			Goto <%= link_to "My Events", events_my_events_path, class: "btn btn-warning" %>  
 			<%end%>
 			<% if can? :create, Event.new %>
 				or <%= link_to "Create Event", new_event_path, class: "btn btn-info" %>
@@ -22,7 +21,7 @@
 
 		<%= form_tag(events_path, method: "get", class: "form-inline") do %>
 			<%= text_field_tag :search, params[:search], prompt: "Enter a keyword...", class: "form-control" %>
-			<%= submit_tag "Search",class: "btn btn-default" %>
+			<%= submit_tag "Search",class: "btn btn-warning" %>
 		<% end %>
 	</div>
 
@@ -38,11 +37,10 @@
 
 <div class="row">
 	<% @events.each do |event|%>
-	<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+	<div class="col-12 col-sm-6 col-md-4">
 		<div class="card">
 		  <%= link_to image_tag(event.avatar.url, height: "150px", width: "100%"), event_path(event) %>
 		  <div class="card-padding">
-
         <!-- Event Header -->
 		  	<div class="row">
 		  		<h4 class="text-center"><%= link_to "#{event.name}", event_path(event) %></h4>
@@ -53,10 +51,11 @@
         	<div class="col-md-8"> 
         		<p class="text-left"><%= event.categories.pluck(:name).map { |e| e.capitalize }.join(', ') %></p>
         	</div>
+
         	<div class="col-md-4">
         		<p class="text-center">
         			<%= link_to event_path(event) do%>
-    						<span class="glyphicon glyphicon-eye-open"></span>
+    					<span class="glyphicon glyphicon-eye-open"></span>
     					<%end%>
     					<% if can? :update, event %>
     						<%= link_to edit_event_path(event) do %>
@@ -85,5 +84,3 @@
 		</div>
 	</div>
 	<%end%>
-</div>
-</div>

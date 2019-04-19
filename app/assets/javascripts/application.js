@@ -15,6 +15,7 @@
 //= require bootstrap-sprockets
 // require turbolinks
 //= require_tree .
+//= require social-share-button
 
 
 
@@ -23,11 +24,11 @@ $(document).ready(function(){
 	$("#event_venue_id").chosen();
 
 	$("#startDatetime").datetimepicker({
-		"dateFormat": "yy-mm-dd"
+		"dateFormat": "dd-mm-yy"
 	});
 
 	$("#endDatetime").datetimepicker({
-		"dateFormat": "yy-mm-dd"
+		"dateFormat": "dd-mm-yy"
 	});
 
 });

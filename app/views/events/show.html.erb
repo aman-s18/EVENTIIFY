@@ -3,11 +3,14 @@
 
 	<div class="page-header">
 		<ol class="breadcrumb">
+
 			<li><%= link_to "Events", events_path %></li>
 			<li class="active"><%= link_to @event.name, event_path(@event) %></li>
 		</ol>
+		<%= social_share_button_tag(@event.name, :allow_sites => %w(twitter facebook linkedin whatsapp_web google_plus tumblr pinterest wechat telegram reddit github)) %>
 		<h2><%= @event.name %><sup> <small> <em> <%= @event.status %></em></small></sup></h2>
 	</div>
+
 
 	<div class="row">
 		<div class="col-md-7" >
@@ -51,11 +54,10 @@
 			    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 			    <span class="sr-only">Next</span>
 			  </a>
-			</div class="btn btn-success">
-			<p><%= @event.likes.count %> <%= (@event.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-			<div>
-			<%= button_to 'Like', event_likes_path(@event), method: :event %>
-		</div>
+			</div class="btn btn-success"><br>
+			<p><%= @event.likes.count %> <%= (@event.likes.count) == 1 ? 'Like' : 'Likes'%><br>
+			<%= link_to 'Like',  event_likes_path(@event), method: :event, class: "btn btn-success btn-lg" %></p>
+			
 <div>
 	<h4>Comments</h4>
 <% @event.comments.each do |comment| %>
@@ -139,8 +141,10 @@
 					<%= f.select :tickets, [1,2,3,4,5] %><br> 
 				
 					<% @event_booking.total_price = @event.entry_fee * @event_booking.tickets %>
+
 				 
-					<%= f.submit "Book Ticket" , class: "btn btn-success"%> <br>
+					<%= f.submit "Book Ticket" , class: "btn btn-success"%><br>
+					<a href="https://p.w3layouts.com/demos/payment_form_widget/web/">Make Payment</a>
 					
 				<% end %>
  

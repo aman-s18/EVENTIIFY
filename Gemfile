@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 #gem 'ruby', '1.9.3'
 gem 'devise'
 # gem 'rating'
+gem 'social-share-button'
+gem 'stripe', '~> 1.57', '>= 1.57.1'
+# gem 'rmagick', '~> 2.15', '>= 2.15.4'
 
 #gem 'json', '~> 1.8.3'
 gem 'json', '~> 1.8', '>= 1.8.3'
@@ -19,6 +22,8 @@ gem 'faker'
 gem 'active_admin_flat_skin'
 # gem 'face_of_active_admin'
 gem 'active_admin_theme'
+# gem "mini_magick"
+
 
 
 gem 'pry'

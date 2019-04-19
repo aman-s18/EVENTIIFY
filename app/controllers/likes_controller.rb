@@ -1,6 +1,12 @@
 class LikesController < ApplicationController
 	before_action :find_event
 
+
+  # def create
+  #   @event.likes.create(user_id: current_user.id)
+  #   redirect_to event_path(@event)
+  # end
+
   def already_liked?
   Like.where(user_id: current_user.id, event_id:
   params[:event_id]).exists?

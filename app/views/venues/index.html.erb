@@ -13,7 +13,7 @@
 	</div>
 	<div class="text-center">
 		<h4><% if can? :my_events, Event.new %>
-			Goto <%= link_to "My Events", events_my_events_path %> 
+			Goto <%= link_to "My Events", events_my_events_path, class: "btn btn-warning" %> 
 			<%end%>
 			<% if can? :create, Venue.new %>
 				Or,
@@ -67,6 +67,7 @@
         		</p>
         	</div>
         </div>
+        <p><%#= venue.likes.count %> <%#= (venue.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 
         <div class="row">
         	<div class="col-sm-6 col-md-6 ">
